@@ -39,6 +39,7 @@ const TEXT = { icon: TextIcon, Pane: TextPane, id: 'text' };
 const SHAPES = { icon: ShapesIcon, Pane: ShapesPane, id: 'shapes' };
 const ELEMS = { icon: ElementsIcon, Pane: ElementsPane, id: 'elements' };
 const ANIM = { icon: AnimationIcon, Pane: AnimationPane, id: 'animation' };
+const EC = { icon: MediaIcon, Pane: MediaPane, id: 'ec' };
 
 function LibraryProvider({ children }) {
   const initialTab = MEDIA.id;
@@ -56,6 +57,7 @@ function LibraryProvider({ children }) {
       SHAPES,
       ...(showElementsTab ? [ELEMS] : []),
       ...(showAnimationTab ? [ANIM] : []),
+	  EC,
     ],
     [media3pTab, showAnimationTab, showElementsTab]
   );
