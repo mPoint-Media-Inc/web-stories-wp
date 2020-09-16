@@ -78,6 +78,7 @@ class Dashboard {
 		add_action( 'admin_enqueue_scripts', [ $this, 'enqueue_assets' ] );
 		add_action( 'admin_notices', [ $this, 'display_link_to_dashboard' ] );
 		add_action( 'load-web-story_page_stories-dashboard', [ $this, 'load_stories_dashboard' ] );
+		add_filter( 'web_stories_dashboard_settings', [$this, 'ec_web_stories_dashboard_settings'], 1, 1 );
 	}
 
 	/**
@@ -324,5 +325,11 @@ class Dashboard {
 			</a>
 		</div>
 		<?php
+	}
+	
+	public function ec_web_stories_dashboard_settings( $settings ) {
+		$settings['config']['api']['ecMedia']='/web-stories/v1/media';
+		//error_log(print_r($settings,true));
+        return $settings;
 	}
 }

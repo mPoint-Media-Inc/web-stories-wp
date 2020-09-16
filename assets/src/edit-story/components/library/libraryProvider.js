@@ -32,6 +32,7 @@ import { Media3pPane, Media3pIcon } from './panes/media/media3p';
 import { ShapesPane, ShapesIcon } from './panes/shapes';
 import { TextPane, TextIcon } from './panes/text';
 import { ElementsPane, ElementsIcon } from './panes/elements';
+import { ECMediaIcon } from './panes/media/ec';
 
 const MEDIA = { icon: MediaIcon, Pane: MediaPane, id: 'media' };
 const MEDIA3P = { icon: Media3pIcon, Pane: Media3pPane, id: 'media3p' };
@@ -39,7 +40,7 @@ const TEXT = { icon: TextIcon, Pane: TextPane, id: 'text' };
 const SHAPES = { icon: ShapesIcon, Pane: ShapesPane, id: 'shapes' };
 const ELEMS = { icon: ElementsIcon, Pane: ElementsPane, id: 'elements' };
 const ANIM = { icon: AnimationIcon, Pane: AnimationPane, id: 'animation' };
-const EC = { icon: MediaIcon, Pane: MediaPane, id: 'ec' };
+const EC = { icon: ECMediaIcon, Pane: MediaPane, id: 'ec' };
 
 function LibraryProvider({ children }) {
   const initialTab = MEDIA.id;
