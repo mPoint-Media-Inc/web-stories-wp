@@ -79,6 +79,7 @@ class Dashboard {
 		add_action( 'admin_notices', [ $this, 'display_link_to_dashboard' ] );
 		add_action( 'load-web-story_page_stories-dashboard', [ $this, 'load_stories_dashboard' ] );
 		add_filter( 'web_stories_dashboard_settings', [$this, 'ec_web_stories_dashboard_settings'], 1, 1 );
+		add_filter( 'web_stories_editor_settings', [$this, 'ec_web_stories_dashboard_settings'], 1, 1 );
 	}
 
 	/**
