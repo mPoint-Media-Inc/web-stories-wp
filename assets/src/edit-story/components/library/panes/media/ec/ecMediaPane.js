@@ -33,12 +33,9 @@ import { __ } from '@wordpress/i18n';
 import { trackEvent } from '../../../../../../tracking';
 import { useConfig } from '../../../../../app/config';
 import { useLocalMedia } from '../../../../../app/media';
-import { useMediaPicker } from '../../../../mediaPicker';
 import { SearchInput } from '../../../common';
-import { Primary } from '../../../../button';
 import useLibrary from '../../../useLibrary';
 import {
-  getResourceFromMediaPicker,
   getTypeFromMime,
 } from '../../../../../app/media/utils';
 import {
@@ -119,27 +116,6 @@ function ECMediaPane(props) {
   const { insertElement } = useLibrary((state) => ({
     insertElement: state.actions.insertElement,
   }));
-
-  const onClose = resetWithFetch;
-
-  /**
-   * Callback of select in media picker to insert media element.
-   *
-   * @param {Object} mediaPickerEl Object coming from backbone media picker.
-   */
-  const onSelect = (mediaPickerEl) => {
-    const resource = getResourceFromMediaPicker(mediaPickerEl);
-    // WordPress media picker event, sizes.medium.url is the smallest image
-    insertMediaElement(
-      resource,
-      mediaPickerEl.sizes?.medium?.url || mediaPickerEl.url
-    );
-  };
-
-  const openMediaPicker = useMediaPicker({
-    onSelect,
-    onClose,
-  });
 
   /**
    * Filter REST API calls and re-request API.
@@ -222,9 +198,6 @@ function ECMediaPane(props) {
               options={FILTERS}
               placement={Placement.BOTTOM_START}
             />
-            <Primary onClick={openMediaPicker}>
-              {__('Upload', 'web-stories')}
-            </Primary>
           </FilterArea>
         </PaneHeader>
 
