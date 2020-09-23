@@ -24,6 +24,7 @@ import PropTypes from 'prop-types';
  */
 import useLocalContextValueProvider from './local/useContextValueProvider';
 import useMedia3pContextValueProvider from './media3p/useContextValueProvider';
+import useEcContextValueProvider from './ec/useContextValueProvider';
 import useMediaReducer from './useMediaReducer';
 import Context from './context';
 
@@ -35,8 +36,9 @@ function MediaProvider({ children }) {
     state.media3p,
     actions.media3p
   );
+  const ec = useEcContextValueProvider(state.ec, actions.ec);
 
-  const context = { local, media3p };
+  const context = { local, media3p, ec };
   return <Context.Provider value={context}>{children}</Context.Provider>;
 }
 

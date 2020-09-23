@@ -24,8 +24,10 @@ import { useReducer, useMemo } from 'react';
  */
 import localReducer from './local/reducer';
 import media3pReducer from './media3p/reducer';
+import ecReducer from './ec/reducer';
 import * as localActionsToWrap from './local/actions';
 import * as media3pActionsToWrap from './media3p/actions';
+import * as ecActionsToWrap from './ec/actions';
 import * as types from './types';
 
 /**
@@ -39,6 +41,7 @@ function rootReducer(state = {}, { type, payload }) {
   return {
     local: localReducer(state.local, { type, payload }),
     media3p: media3pReducer(state.media3p, { type, payload }),
+    ec: ecReducer(state.ec, { type, payload }),
   };
 }
 
@@ -81,7 +84,7 @@ const wrapWithDispatch = (actionFnOrActionObject, dispatch) => {
  */
 function useMediaReducer(reducer = rootReducer, actionsToWrap) {
   const defaultActionsToWrap = useMemo(
-    () => ({ local: localActionsToWrap, media3p: media3pActionsToWrap }),
+    () => ({ local: localActionsToWrap, media3p: media3pActionsToWrap, ec: ecActionsToWrap }),
     []
   );
   actionsToWrap = actionsToWrap ?? defaultActionsToWrap;

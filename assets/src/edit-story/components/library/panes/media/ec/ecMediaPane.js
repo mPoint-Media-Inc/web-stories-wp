@@ -207,7 +207,7 @@ function ECMediaPane(props) {
           </MediaGalleryMessage>
         ) : (
           <PaginatedMediaGallery
-            providerType={'local'}
+            providerType={'ec'}
             resources={resources}
             isMediaLoading={isMediaLoading}
             isMediaLoaded={isMediaLoaded}
