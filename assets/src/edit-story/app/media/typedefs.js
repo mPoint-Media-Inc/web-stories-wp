@@ -17,6 +17,7 @@
 /**
  * @typedef {import('./media3p/typedefs').Media3pContext} Media3pContext
  * @typedef {import('./local/typedefs').LocalMediaContext} LocalMediaContext
+ * @typedef {import('./ec/typedefs').EcMediaContext} EcMediaContext
  */
 
 /**
@@ -56,6 +57,7 @@
  * @typedef MediaContext
  * @property {Media3pContext} media3p Context state and actions of media3p.
  * @property {LocalMediaContext} local Context state and actions of local media.
+ * @property {EcMediaContext} ec Context state and actions of ec media.
  */
 
 // This is required so that the IDE doesn't ignore this file.

@@ -35,6 +35,8 @@ import * as types from './types';
  * @typedef {import('./media3p/typedefs').Media3pContextActions} Media3pContextActions
  * @typedef {import('./local/typedefs').LocalMediaContextState} LocalMediaContextState
  * @typedef {import('./local/typedefs').LocalMediaContextActions} LocalMediaContextActions
+ * @typedef {import('./ec/typedefs').EcMediaContextState} EcMediaContextState
+ * @typedef {import('./ec/typedefs').EcMediaContextActions} EcMediaContextActions
  */
 
 function rootReducer(state = {}, { type, payload }) {
@@ -67,9 +69,11 @@ const wrapWithDispatch = (actionFnOrActionObject, dispatch) => {
  * @property {Object} state Reducer state of media3p and local.
  * @property {LocalMediaContextState} state.local local state
  * @property {Media3pContextState} state.media3p media3p state
+ * @property {EcMediaContextState} state.ec ec state
  * @property {Object} actions Reducer actions of media3p and local.
  * @property {LocalMediaContextActions} actions.local local actions
  * @property {Media3pContextActions} actions.media3p media3p actions
+ * @property {EcContextActions} actions.ec ec actions
  */
 
 /**
