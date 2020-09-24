@@ -67,7 +67,7 @@ export default function useContextValueProvider(reducerState, reducerActions) {
     deleteMediaElement,
   } = reducerActions;
   const {
-    actions: { getMedia },
+    actions: { getEcMedia },
   } = useAPI();
 
   const fetchMedia = useCallback(
@@ -81,7 +81,7 @@ export default function useContextValueProvider(reducerState, reducerActions) {
       callback
     ) => {
       fetchMediaStart({ pageToken: p });
-      getMedia({
+      getEcMedia({
         mediaType: currentMediaType,
         searchTerm: currentSearchTerm,
         pagingNum: p,
@@ -102,7 +102,7 @@ export default function useContextValueProvider(reducerState, reducerActions) {
         })
         .catch(fetchMediaError);
     },
-    [fetchMediaError, fetchMediaStart, getMedia]
+    [fetchMediaError, fetchMediaStart, getEcMedia]
   );
 
   const { uploadMedia, isUploading } = useUploadMedia({ media, setMedia });
