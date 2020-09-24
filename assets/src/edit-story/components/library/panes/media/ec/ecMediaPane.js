@@ -69,42 +69,33 @@ const FILTERS = [
 
 function ECMediaPane(props) {
   const {
-    hasMore,
-    media,
-    isMediaLoading,
-    isMediaLoaded,
     mediaType,
     searchTerm,
-    setNextPage,
-    resetWithFetch,
     setMediaType,
     setSearchTerm,
+    ec
   } = useEcMedia(
     ({
+      ec:{
       state: {
-        hasMore,
-        media,
-        isMediaLoading,
-        isMediaLoaded,
         mediaType,
         searchTerm,
       },
-      actions: { setNextPage, resetWithFetch, setMediaType, setSearchTerm },
+      actions: { setMediaType, setSearchTerm }},
+      ec,
     }) => {
       return {
-        hasMore,
-        media,
-        isMediaLoading,
-        isMediaLoaded,
         mediaType,
         searchTerm,
-        setNextPage,
-        resetWithFetch,
         setMediaType,
         setSearchTerm,
+        ec,
       };
     }
   );
+
+  const state = ec.state;
+  const actions = ec.actions;
 
   const {
     allowedMimeTypes: {
@@ -166,7 +157,7 @@ function ECMediaPane(props) {
     [allowedImageMimeTypes, allowedVideoMimeTypes, mediaType]
   );
 
-  const resources = media.filter(filterResource);
+  const resources = state.media.filter(filterResource);
 
   const onSearch = (value) => {
     setSearchTerm({ searchTerm: value });
@@ -201,7 +192,7 @@ function ECMediaPane(props) {
           </FilterArea>
         </PaneHeader>
 
-        {isMediaLoaded && !media.length ? (
+        {state.isMediaLoaded && !state.media.length ? (
           <MediaGalleryMessage>
             {__('No media found', 'web-stories')}
           </MediaGalleryMessage>
@@ -209,11 +200,11 @@ function ECMediaPane(props) {
           <PaginatedMediaGallery
             providerType={'ec'}
             resources={resources}
-            isMediaLoading={isMediaLoading}
-            isMediaLoaded={isMediaLoaded}
-            hasMore={hasMore}
+            isMediaLoading={state.isMediaLoading}
+            isMediaLoaded={state.isMediaLoaded}
+            hasMore={state.hasMore}
             onInsert={insertMediaElement}
-            setNextPage={setNextPage}
+            setNextPage={actions.setNextPage}
             searchTerm={searchTerm}
           />
         )}
