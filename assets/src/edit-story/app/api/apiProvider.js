@@ -261,7 +261,7 @@ function APIProvider({ children }) {
         apiPath = addQueryArgs(apiPath, { cache_bust: true });
       }
 
-      return apiFetch({ path: apiPath }).then((response) => {
+      return apiFetch({ url: apiPath }).then((response) => {
         return { data: response.body, headers: response.headers };
       });
     },
