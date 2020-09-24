@@ -266,7 +266,7 @@ function APIProvider({ children }) {
         console.log(response);
         //console.log(response.data);
         //console.log(response.headers);
-        return { data: response.data, headers: response.headers };
+        return { data: response.data.body, headers: response.data.headers };
       });
     },
     [media]
