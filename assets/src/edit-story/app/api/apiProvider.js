@@ -19,6 +19,7 @@
  */
 import PropTypes from 'prop-types';
 import { useCallback } from 'react';
+import axios from 'axios';
 
 /**
  * WordPress dependencies
@@ -261,7 +262,7 @@ function APIProvider({ children }) {
         apiPath = addQueryArgs(apiPath, { cache_bust: true });
       }
 
-      return apiFetch({ url: apiPath }).then((response) => {
+      return axios({ url: apiPath }).then((response) => {
         return { data: response.body, headers: response.headers };
       });
     },
