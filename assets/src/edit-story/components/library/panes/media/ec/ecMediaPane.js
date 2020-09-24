@@ -83,15 +83,13 @@ function ECMediaPane(props) {
       },
       actions: { setMediaType, setSearchTerm }},
       ec,
-    }) => {
-      return {
+    }) => ({
         mediaType,
         searchTerm,
         setMediaType,
         setSearchTerm,
         ec,
-      };
-    }
+      })
   );
 
   const state = ec.state;

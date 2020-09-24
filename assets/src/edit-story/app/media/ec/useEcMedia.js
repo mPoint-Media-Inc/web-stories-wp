@@ -34,7 +34,7 @@ import useMedia from '../useMedia';
  * @return {Object} The selected context value fragment.
  */
 function useEcMedia(selector) {
-  return useMedia(({ local }) => (selector ?? identity)(local));
+  return useMedia(({ ec }) => (selector ?? identity)(ec));
 }
 
 export default useEcMedia;
