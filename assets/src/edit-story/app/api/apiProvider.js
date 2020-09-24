@@ -264,9 +264,9 @@ function APIProvider({ children }) {
 
       return axios({ url: apiPath }).then((response) => {
         console.log(response);
-        console.log(response.body);
-        console.log(response.headers);
-        return { data: response.body, headers: response.headers };
+        //console.log(response.data);
+        //console.log(response.headers);
+        return { data: response.data, headers: response.headers };
       });
     },
     [media]
