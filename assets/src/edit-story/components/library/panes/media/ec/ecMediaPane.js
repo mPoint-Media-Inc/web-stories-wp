@@ -81,29 +81,29 @@ function ECMediaPane(props) {
     setSearchTerm,
   } = useEcMedia(
     ({
-      state: {
-        hasMore,
-        media,
-        isMediaLoading,
-        isMediaLoaded,
-        mediaType,
-        searchTerm,
-      },
-      actions: { setNextPage, resetWithFetch, setMediaType, setSearchTerm },
-    }) => {
-      return {
-        hasMore,
-        media,
-        isMediaLoading,
-        isMediaLoaded,
-        mediaType,
-        searchTerm,
-        setNextPage,
-        resetWithFetch,
-        setMediaType,
-        setSearchTerm,
-      };
-    }
+       ec: {
+         state: {
+           hasMore,
+           media,
+           isMediaLoading,
+           isMediaLoaded,
+           mediaType,
+           searchTerm,
+         },
+         actions: { setNextPage, resetWithFetch, setMediaType, setSearchTerm  },
+       },
+     }) => ({
+      hasMore,
+      media,
+      isMediaLoading,
+      isMediaLoaded,
+      mediaType,
+      searchTerm,
+      setNextPage,
+      resetWithFetch,
+      setMediaType,
+      setSearchTerm,
+    })
   );
 
   const {
