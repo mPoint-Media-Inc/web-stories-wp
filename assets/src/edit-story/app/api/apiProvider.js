@@ -244,6 +244,7 @@ function APIProvider({ children }) {
         context: 'view',
         per_page: perPage,
         page: pagingNum,
+        _envelope: true,
       });
 
       if (mediaType) {
