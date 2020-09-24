@@ -329,7 +329,7 @@ class Dashboard {
 	}
 
 	public function ec_web_stories_dashboard_settings( $settings ) {
-		$settings['config']['api']['ec']='/wp-json/wp/v2/media';
+		$settings['config']['api']['ec']='/wp/v2/media';
 		//error_log(print_r($settings,true));
         return $settings;
 	}

@@ -32,7 +32,7 @@ import { __ } from '@wordpress/i18n';
  */
 import { trackEvent } from '../../../../../../tracking';
 import { useConfig } from '../../../../../app/config';
-import { useLocalMedia } from '../../../../../app/media';
+import { useEcMedia } from '../../../../../app/media';
 import { SearchInput } from '../../../common';
 import useLibrary from '../../../useLibrary';
 import {
@@ -79,7 +79,7 @@ function ECMediaPane(props) {
     resetWithFetch,
     setMediaType,
     setSearchTerm,
-  } = useLocalMedia(
+  } = useEcMedia(
     ({
       state: {
         hasMore,
