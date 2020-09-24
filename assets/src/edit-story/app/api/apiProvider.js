@@ -235,10 +235,7 @@ function APIProvider({ children }) {
 
   const getEcMedia = useCallback(
     ({ mediaType, searchTerm, pagingNum, cacheBust }) => {
-      console.log("EC Media");
       let apiPath = ec;
-      console.log(apiPath);
-      console.log(ec);
       const perPage = 100;
       apiPath = addQueryArgs(apiPath, {
         context: 'view',
