@@ -34,21 +34,21 @@ const INITIAL_STATE = {
 };
 
 /**
- * @typedef {import('./typedefs').LocalMediaReducerState} LocalMediaReducerState
+ * @typedef {import('./typedefs').EcMediaReducerState} EcMediaReducerState
  */
 
 /**
- * The reducer for locally uploaded media.
+ * The reducer for ec uploaded media.
  *
  * For pagination actions, the `payload.provider` discriminator must be
- * assigned to 'local', which is passed from the local media action dispatchers
+ * assigned to 'ec', which is passed from the ec media action dispatchers
  * at {@link ./actions}.
  *
- * @param {LocalMediaReducerState} state The state to reduce
+ * @param {EcMediaReducerState} state The state to reduce
  * @param {Object} obj An object with the type and payload
  * @param {string} obj.type A constant that identifies the reducer action
  * @param {Object} obj.payload The details of the action, specific to the action
- * @return {LocalMediaReducerState} The new state
+ * @return {EcMediaReducerState} The new state
  */
 function reducer(state = INITIAL_STATE, { type, payload }) {
   switch (type) {
@@ -64,7 +64,7 @@ function reducer(state = INITIAL_STATE, { type, payload }) {
       return state;
     }
 
-    case types.LOCAL_MEDIA_RESET_FILTERS: {
+    case types.EC_MEDIA_RESET_FILTERS: {
       return {
         ...INITIAL_STATE,
         processing: [...state.processing],
@@ -72,7 +72,7 @@ function reducer(state = INITIAL_STATE, { type, payload }) {
       };
     }
 
-    case types.LOCAL_MEDIA_SET_SEARCH_TERM: {
+    case types.EC_MEDIA_SET_SEARCH_TERM: {
       const { searchTerm } = payload;
       if (searchTerm === state.searchTerm) {
         return state;
@@ -86,7 +86,7 @@ function reducer(state = INITIAL_STATE, { type, payload }) {
       };
     }
 
-    case types.LOCAL_MEDIA_SET_MEDIA_TYPE: {
+    case types.EC_MEDIA_SET_MEDIA_TYPE: {
       const { mediaType } = payload;
       if (mediaType === state.mediaType) {
         return state;
@@ -101,7 +101,7 @@ function reducer(state = INITIAL_STATE, { type, payload }) {
       };
     }
 
-    case types.LOCAL_MEDIA_SET_MEDIA: {
+    case types.EC_MEDIA_SET_MEDIA: {
       const { media } = payload;
 
       return {
@@ -110,7 +110,7 @@ function reducer(state = INITIAL_STATE, { type, payload }) {
       };
     }
 
-    case types.LOCAL_MEDIA_ADD_PROCESSING: {
+    case types.EC_MEDIA_ADD_PROCESSING: {
       const { id } = payload;
       if (!id || state.processing.includes(id)) {
         return state;
@@ -121,7 +121,7 @@ function reducer(state = INITIAL_STATE, { type, payload }) {
       };
     }
 
-    case types.LOCAL_MEDIA_REMOVE_PROCESSING: {
+    case types.EC_MEDIA_REMOVE_PROCESSING: {
       const { id } = payload;
       if (!id || !state.processing.includes(id)) {
         return state;

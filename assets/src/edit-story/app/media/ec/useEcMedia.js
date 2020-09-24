@@ -21,14 +21,14 @@ import { identity } from '../../../utils/context';
 import useMedia from '../useMedia';
 
 /**
- * @typedef {import('./typedefs').LocalMediaContext} LocalMediaContext
+ * @typedef {import('./typedefs').EcMediaContext} EcMediaContext
  */
 
 /**
- * Context value consumer to select a fragment of the locally uploaded media
+ * Context value consumer to select a fragment of the ec uploaded media
  * context value that's provided from {@link ./useContextValueProvider}.
  *
- * @param {function(LocalMediaContext):Object?} selector Returns a fragment of the media
+ * @param {function(EcMediaContext):Object?} selector Returns a fragment of the media
  * context value that the caller is interested in. If no selector is provided
  * then the entire context is selected.
  * @return {Object} The selected context value fragment.

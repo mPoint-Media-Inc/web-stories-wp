@@ -49,31 +49,31 @@ export const deleteMediaElement = (dispatch) => (properties) =>
   });
 
 export const resetFilters = (dispatch) => () => {
-  dispatch({ type: types.LOCAL_MEDIA_RESET_FILTERS });
+  dispatch({ type: types.EC_MEDIA_RESET_FILTERS });
 };
 
 export const setSearchTerm = (dispatch) => ({ searchTerm }) => {
   dispatch({
-    type: types.LOCAL_MEDIA_SET_SEARCH_TERM,
+    type: types.EC_MEDIA_SET_SEARCH_TERM,
     payload: { searchTerm },
   });
 };
 
 export const setMediaType = (dispatch) => ({ mediaType }) => {
-  dispatch({ type: types.LOCAL_MEDIA_SET_MEDIA_TYPE, payload: { mediaType } });
+  dispatch({ type: types.EC_MEDIA_SET_MEDIA_TYPE, payload: { mediaType } });
 };
 
 export const setProcessing = (dispatch) => ({ id }) => {
-  dispatch({ type: types.LOCAL_MEDIA_ADD_PROCESSING, payload: { id } });
+  dispatch({ type: types.EC_MEDIA_ADD_PROCESSING, payload: { id } });
 };
 
 export const removeProcessing = (dispatch) => ({ id }) => {
-  dispatch({ type: types.LOCAL_MEDIA_REMOVE_PROCESSING, payload: { id } });
+  dispatch({ type: types.EC_MEDIA_REMOVE_PROCESSING, payload: { id } });
 };
 
 export const setMedia = (dispatch) => ({ media }) => {
   dispatch({
-    type: types.LOCAL_MEDIA_SET_MEDIA,
+    type: types.EC_MEDIA_SET_MEDIA,
     payload: { media },
   });
 };

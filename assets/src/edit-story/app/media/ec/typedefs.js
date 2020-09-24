@@ -37,7 +37,7 @@
  */
 
 /**
- * 'local media' action typedefs from {@link ./actions}.
+ * 'ec media' action typedefs from {@link ./actions}.
  *
  * @typedef {(payload: {id: string}) => undefined} DeleteMediaElementFn
  * @typedef {() => undefined} ResetFiltersFn
@@ -46,7 +46,7 @@
  * @typedef {() => undefined} SetNextPageFn
  * @typedef {(payload: {searchTerm: string}) => undefined} SetSearchTermFn
  * @typedef {(payload: UpdateMediaElementPayload) => undefined} UpdateMediaElementFn
- * @typedef {(files:[], payload: { onLocalFile, onUploadFile, onUploadFailure }) => undefined} UploadMediaFn
+ * @typedef {(files:[], payload: { onEcFile, onUploadFile, onUploadFailure }) => undefined} UploadMediaFn
  * @typedef {(id: string, src: string) => undefined} UploadVideoPosterFn
  * @typedef {() => undefined} FetchMediaErrorFn
  * @typedef {(payload: {pageToken: string}) => undefined} FetchMediaStartFn
@@ -54,9 +54,9 @@
  */
 
 /**
- * 'local media' actions exposed through context providers
+ * 'ec media' actions exposed through context providers
  *
- * @typedef {Object} LocalMediaContextActions
+ * @typedef {Object} EcMediaContextActions
  * @property {DeleteMediaElementFn} deleteMediaElement action to delete a media
  * @property {ResetFiltersFn} resetFilters action to reset filters
  * @property {ResetWithFetchFn} resetWithFetch resets the filter in the state,
@@ -70,10 +70,10 @@
  */
 
 /**
- * 'local media' state object exposed to the rest of application through context
+ * 'ec media' state object exposed to the rest of application through context
  * providers.
  *
- * @typedef {Object} LocalMediaContextState
+ * @typedef {Object} EcMediaContextState
  * @property {boolean} hasMore is there more media
  * @property {boolean} isMediaLoaded is media loaded
  * @property {boolean} isMediaLoading is media loading
@@ -89,18 +89,18 @@
  */
 
 /**
- * 'local media' context exposed to application through context providers containing
+ * 'ec media' context exposed to application through context providers containing
  * state and action.
  *
- * @typedef {Object} LocalMediaContext
- * @property {LocalMediaContextState} state state of locally uploaded media
- * @property {LocalMediaContextActions} actions actions for local media
+ * @typedef {Object} EcMediaContext
+ * @property {EcMediaContextState} state state of locally uploaded media
+ * @property {EcMediaContextActions} actions actions for ec media
  */
 
 /**
- * 'local media' state object used internally by the reducer.
+ * 'ec media' state object used internally by the reducer.
  *
- * @typedef {Object} LocalMediaReducerState
+ * @typedef {Object} EcMediaReducerState
  * @property {boolean} hasMore is there more media
  * @property {boolean} isMediaLoaded is media loaded
  * @property {boolean} isMediaLoading is media loading
@@ -116,9 +116,9 @@
  */
 
 /**
- * 'local media' actions used internally by the reducer.
+ * 'ec media' actions used internally by the reducer.
  *
- * @typedef {Object} LocalMediaContextActions
+ * @typedef {Object} EcMediaContextActions
  * @property {DeleteMediaElementFn} deleteMediaElement action to delete a media
  * @property {FetchMediaErrorFn} fetchMediaError action when fetching media has
  * error
