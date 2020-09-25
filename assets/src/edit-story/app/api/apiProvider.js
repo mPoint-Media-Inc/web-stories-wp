@@ -237,12 +237,11 @@ function APIProvider({ children }) {
   const getEcMedia = useCallback(
     ({ mediaType, searchTerm, pagingNum, cacheBust }) => {
       let apiPath = ec;
-      const perPage = 20;
+      const perPage = 10;
       apiPath = addQueryArgs(apiPath, {
         context: 'view',
         per_page: perPage,
         page: pagingNum,
-        _envelope: true,
       });
 
       if (mediaType) {
