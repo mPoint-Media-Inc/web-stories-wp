@@ -16,4 +16,5 @@
 
 export { default as MediaProvider } from './mediaProvider';
 export { default as useLocalMedia } from './local/useLocalMedia';
+export { default as useEcMedia } from './ec/useEcMedia';
 export { default as useMedia } from './useMedia';

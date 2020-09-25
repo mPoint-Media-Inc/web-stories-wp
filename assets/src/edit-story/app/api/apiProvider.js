@@ -19,6 +19,7 @@
  */
 import PropTypes from 'prop-types';
 import { useCallback } from 'react';
+import axios from 'axios';
 
 /**
  * WordPress dependencies
@@ -35,7 +36,7 @@ import Context from './context';
 
 function APIProvider({ children }) {
   const {
-    api: { stories, media, fonts, link, users },
+    api: { stories, media, fonts, link, users, ec },
   } = useConfig();
 
   const getStoryById = useCallback(
@@ -233,6 +234,41 @@ function APIProvider({ children }) {
     return apiFetch({ path: addQueryArgs(users, { per_page: '-1' }) });
   }, [users]);
 
+  const getEcMedia = useCallback(
+    ({ mediaType, searchTerm, pagingNum, cacheBust }) => {
+      let apiPath = ec;
+      const perPage = 100;
+      apiPath = addQueryArgs(apiPath, {
+        context: 'view',
+        per_page: perPage,
+        page: pagingNum,
+        _envelope: true,
+      });
+
+      if (mediaType) {
+        apiPath = addQueryArgs(apiPath, { media_type: mediaType });
+      }
+
+      if (searchTerm) {
+        apiPath = addQueryArgs(apiPath, { search: searchTerm });
+      }
+
+      // cacheBusting is due to the preloading logic preloading and caching
+      // some requests. (see preload_paths in Dashboard.php)
+      // Adding cache_bust forces the path to look different from the preloaded
+      // paths and hence skipping the cache. (cache_bust itself doesn't do
+      // anything)
+      if (cacheBust) {
+        apiPath = addQueryArgs(apiPath, { cache_bust: true });
+      }
+
+      return axios({ url: apiPath }).then((response) => {
+        return { data: response.data.body, headers: response.data.headers };
+      });
+    },
+    [media]
+  );
+
   const state = {
     actions: {
       autoSaveById,
@@ -245,6 +281,7 @@ function APIProvider({ children }) {
       uploadMedia,
       updateMedia,
       deleteMedia,
+      getEcMedia,
     },
   };
 

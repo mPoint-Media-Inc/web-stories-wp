@@ -14,22 +14,9 @@
  * limitations under the License.
  */
 
-/**
- * Internal dependencies
- */
-import { createContext } from '../../utils/context';
-
-/**
- * @typedef {import('./typedefs').MediaContext} MediaContext
- */
-
-/**
- * @type {MediaContext}
- */
-const INITIAL_CONTEXT = {
-  local: { state: {}, actions: {} },
-  media3p: { state: {}, actions: {} },
-  ec: { state: {}, actions: {} },
-};
-
-export default createContext(INITIAL_CONTEXT);
+export const EC_MEDIA_RESET_FILTERS = 'EC_MEDIA_RESET_FILTERS';
+export const EC_MEDIA_SET_SEARCH_TERM = 'EC_MEDIA_SET_SEARCH_TERM';
+export const EC_MEDIA_SET_MEDIA_TYPE = 'EC_MEDIA_SET_MEDIA_TYPE';
+export const EC_MEDIA_SET_MEDIA = 'EC_MEDIA_SET_MEDIA';
+export const EC_MEDIA_REMOVE_PROCESSING = 'EC_MEDIA_REMOVE_PROCESSING';
+export const EC_MEDIA_ADD_PROCESSING = 'EC_MEDIA_ADD_PROCESSING';

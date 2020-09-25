@@ -164,7 +164,7 @@ function PaginatedMediaGallery({
   }, [isMediaLoading, hasMore]);
 
   const attribution =
-    providerType !== 'local' &&
+    providerType !== 'local' && providerType !== 'ec' &&
     PROVIDERS[providerType].attributionComponent &&
     PROVIDERS[providerType].attributionComponent();
   return (

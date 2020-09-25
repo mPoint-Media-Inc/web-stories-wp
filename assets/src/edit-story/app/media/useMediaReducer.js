@@ -24,8 +24,10 @@ import { useReducer, useMemo } from 'react';
  */
 import localReducer from './local/reducer';
 import media3pReducer from './media3p/reducer';
+import ecReducer from './ec/reducer';
 import * as localActionsToWrap from './local/actions';
 import * as media3pActionsToWrap from './media3p/actions';
+import * as ecActionsToWrap from './ec/actions';
 import * as types from './types';
 
 /**
@@ -33,12 +35,15 @@ import * as types from './types';
  * @typedef {import('./media3p/typedefs').Media3pContextActions} Media3pContextActions
  * @typedef {import('./local/typedefs').LocalMediaContextState} LocalMediaContextState
  * @typedef {import('./local/typedefs').LocalMediaContextActions} LocalMediaContextActions
+ * @typedef {import('./ec/typedefs').EcMediaContextState} EcMediaContextState
+ * @typedef {import('./ec/typedefs').EcMediaContextActions} EcMediaContextActions
  */
 
 function rootReducer(state = {}, { type, payload }) {
   return {
     local: localReducer(state.local, { type, payload }),
     media3p: media3pReducer(state.media3p, { type, payload }),
+    ec: ecReducer(state.ec, { type, payload }),
   };
 }
 
@@ -64,9 +69,11 @@ const wrapWithDispatch = (actionFnOrActionObject, dispatch) => {
  * @property {Object} state Reducer state of media3p and local.
  * @property {LocalMediaContextState} state.local local state
  * @property {Media3pContextState} state.media3p media3p state
+ * @property {EcMediaContextState} state.ec ec state
  * @property {Object} actions Reducer actions of media3p and local.
  * @property {LocalMediaContextActions} actions.local local actions
  * @property {Media3pContextActions} actions.media3p media3p actions
+ * @property {EcContextActions} actions.ec ec actions
  */
 
 /**
@@ -81,7 +88,7 @@ const wrapWithDispatch = (actionFnOrActionObject, dispatch) => {
  */
 function useMediaReducer(reducer = rootReducer, actionsToWrap) {
   const defaultActionsToWrap = useMemo(
-    () => ({ local: localActionsToWrap, media3p: media3pActionsToWrap }),
+    () => ({ local: localActionsToWrap, media3p: media3pActionsToWrap, ec: ecActionsToWrap }),
     []
   );
   actionsToWrap = actionsToWrap ?? defaultActionsToWrap;

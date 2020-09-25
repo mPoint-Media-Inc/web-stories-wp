@@ -17,19 +17,5 @@
 /**
  * Internal dependencies
  */
-import { createContext } from '../../utils/context';
-
-/**
- * @typedef {import('./typedefs').MediaContext} MediaContext
- */
-
-/**
- * @type {MediaContext}
- */
-const INITIAL_CONTEXT = {
-  local: { state: {}, actions: {} },
-  media3p: { state: {}, actions: {} },
-  ec: { state: {}, actions: {} },
-};
-
-export default createContext(INITIAL_CONTEXT);
+export { default as ECMediaPane } from './ecMediaPane';
+export { default as ECMediaIcon } from './ecMediaIcon';

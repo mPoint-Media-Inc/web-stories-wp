@@ -17,19 +17,6 @@
 /**
  * Internal dependencies
  */
-import { createContext } from '../../utils/context';
+import { getPaneId } from '../../shared';
 
-/**
- * @typedef {import('./typedefs').MediaContext} MediaContext
- */
-
-/**
- * @type {MediaContext}
- */
-const INITIAL_CONTEXT = {
-  local: { state: {}, actions: {} },
-  media3p: { state: {}, actions: {} },
-  ec: { state: {}, actions: {} },
-};
-
-export default createContext(INITIAL_CONTEXT);
+export default getPaneId('ec');

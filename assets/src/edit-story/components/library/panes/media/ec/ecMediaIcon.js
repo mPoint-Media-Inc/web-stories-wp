@@ -15,21 +15,17 @@
  */
 
 /**
+ * WordPress dependencies
+ */
+import { __ } from '@wordpress/i18n';
+
+/**
  * Internal dependencies
  */
-import { createContext } from '../../utils/context';
+import { Ec } from '../../../../../icons';
 
-/**
- * @typedef {import('./typedefs').MediaContext} MediaContext
- */
+function ECMediaIcon() {
+  return <Ec aria-label={__('Easy Content Media Gallery', 'web-stories')} />;
+}
 
-/**
- * @type {MediaContext}
- */
-const INITIAL_CONTEXT = {
-  local: { state: {}, actions: {} },
-  media3p: { state: {}, actions: {} },
-  ec: { state: {}, actions: {} },
-};
-
-export default createContext(INITIAL_CONTEXT);
+export default ECMediaIcon;
